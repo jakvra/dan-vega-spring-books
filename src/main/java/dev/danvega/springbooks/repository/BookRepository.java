@@ -2,6 +2,7 @@ package dev.danvega.springbooks.repository;
 
 import dev.danvega.springbooks.model.Book;
 import dev.danvega.springbooks.model.Rating;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.PostConstruct;
@@ -9,14 +10,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Repository
+@RequiredArgsConstructor
 public class BookRepository {
 
     private final AuthorRepository authorRepository;
     private List<Book> books = new ArrayList<>();
-
-    public BookRepository(AuthorRepository authorRepository) {
-        this.authorRepository = authorRepository;
-    }
 
     public List<Book> findAll() {
         return books;
